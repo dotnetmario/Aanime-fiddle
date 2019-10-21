@@ -1,0 +1,17 @@
+:root {
+    --main-color: #FDB9C8;
+    --sec-color : #FE7F9C;
+    --thrd-color : #FDAB9F;
+    --frth-color : #DF5286;
+    --ffth-color : #FB607F;
+    --bg-color : rgb(252, 235, 238);
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: var(--bg-color);
+}
