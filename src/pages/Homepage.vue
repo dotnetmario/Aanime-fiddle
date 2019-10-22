@@ -28,7 +28,30 @@
         </div>
 
         <div class="row">
-            <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            <div v-if="isActive('tvNew')|isActive('all')">
+            new
+                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            </div>
+            <div v-if="isActive('tvCont')">
+            cont
+                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            </div>
+            <div v-if="isActive('ona')">
+            ona
+                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            </div>
+            <div v-if="isActive('ova')">
+            ova
+                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            </div>
+            <div v-if="isActive('movie')">
+            movie
+                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            </div>
+            <div v-if="isActive('special')">
+            specias
+                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+            </div>
         </div>
     </div>
 </template>
