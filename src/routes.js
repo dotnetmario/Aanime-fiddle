@@ -1,5 +1,7 @@
 import Homepage from './pages/Homepage.vue';
+import Anime from './pages/Anime.vue';
 
 export const routes = [
-    {path : '', component : Homepage},
+    {name : 'home', path : '', component : Homepage},
+    {name : 'anime', path : '/anime/:id', component : Anime},
 ];

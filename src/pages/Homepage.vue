@@ -27,30 +27,32 @@
             </ul>
         </div>
 
-        <div class="row">
-            <div v-if="isActive('tvNew')|isActive('all')">
-            new
-                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
-            </div>
-            <div v-if="isActive('tvCont')">
-            cont
-                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
-            </div>
-            <div v-if="isActive('ona')">
-            ona
-                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
-            </div>
-            <div v-if="isActive('ova')">
-            ova
-                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
-            </div>
-            <div v-if="isActive('movie')">
-            movie
-                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
-            </div>
-            <div v-if="isActive('special')">
-            specias
-                <Animecard v-for="anime in animes" :anime="anime" :key="anime.mal_id"></Animecard>
+        <div class="mx-5">
+            <div class="row">
+                <div v-if="isActive('tvNew')||isActive('all')" class="row">
+                    <h2 class="heading mt-4 mx-auto col-12">New</h2>
+                    <Animecard v-for="anime in tvNew" :anime="anime" :key="anime.mal_id"></Animecard>
+                </div>
+                <div v-if="isActive('tvCont')||isActive('all')" class="row">
+                    <h2 class="heading mt-4 mx-auto col-12">Continuing</h2>
+                    <Animecard v-for="anime in tvCont" :anime="anime" :key="anime.mal_id"></Animecard>
+                </div>
+                <div v-if="isActive('ona')||isActive('all')" class="row">
+                    <h2 class="heading mt-4 mx-auto col-12">ONA</h2>
+                    <Animecard v-for="anime in ona" :anime="anime" :key="anime.mal_id"></Animecard>
+                </div>
+                <div v-if="isActive('ova')||isActive('all')" class="row">
+                    <h2 class="heading mt-4 mx-auto col-12">OVA</h2>
+                    <Animecard v-for="anime in ova" :anime="anime" :key="anime.mal_id"></Animecard>
+                </div>
+                <div v-if="isActive('movie')||isActive('all')" class="row">
+                    <h2 class="heading mt-4 mx-auto col-12">Movies</h2>
+                    <Animecard v-for="anime in movie" :anime="anime" :key="anime.mal_id"></Animecard>
+                </div>
+                <div v-if="isActive('special')||isActive('all')" class="row">
+                    <h2 class="heading mt-4 mx-auto col-12">Specials</h2>
+                    <Animecard v-for="anime in special" :anime="anime" :key="anime.mal_id"></Animecard>
+                </div>
             </div>
         </div>
     </div>
@@ -96,6 +98,7 @@ export default {
                     this.animes = res.anime;
                     this.all = res.anime;
                     this.filterAnime();
+                    console.log(this.animes);
                 })
                 .catch((err) => {
                     console.error(err);
@@ -169,9 +172,17 @@ export default {
             }
         },
         isActive(type){
-            console.log(this.active, type, this.active == type);
             return this.active == type;
         }
     },
 }
-</script>;
+</script>
+
+<style lang="css" scoped>
+    .heading{
+        height: 40px;
+        width: 70%;
+        background-color: #336699;
+        color: white;
+    }
+</style>

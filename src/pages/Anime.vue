@@ -1,22 +1,32 @@
 <template>
     <div>
-        
+        {{ $route.params.id }}
+        {{ id }}
     </div>
 </template>
 
 <script>
 export default {
     name : 'Anime',
-
+    data(){
+        return {
+            id: $route.params.id,
+            anime: null,
+        }
+    },
+    created() {
+        this.getAnime(this.id);
+    },
     methods: {
-        getAnime(){
-            jikanjs.loadAnime(19815, 'episodes').then((response) => {
-                response.episodes.forEach(element => {
-                    console.log(`${element.episode_id}: ${element.title} - ${element.title_romanji} - ${element.title_japanese}`);
-                })
-            }).catch((err) => {
-                console.error(err);
-            });
+        getAnime(id){
+            console.log(id);
+            // jikanjs.loadAnime(id, 'episodes').then((response) => {
+            //     response.episodes.forEach(element => {
+            //         console.log(`${element.episode_id}: ${element.title} - ${element.title_romanji} - ${element.title_japanese}`);
+            //     })
+            // }).catch((err) => {
+            //     console.error(err);
+            // });
         },
 
         saveAnime(){
