@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-3">
+    <div class="mx-3" :class="{'d-none' : !this.loaded}">
         <h1>{{ year }} {{ season}} Anime</h1>
         <div class="text-center">
             <ul class="nav nav-pills justify-content-center">
@@ -81,6 +81,7 @@ export default {
             movie : null,
             special : null,
             active : 'all',
+            loaded : false,
         }
     },
     created() {
@@ -98,6 +99,7 @@ export default {
                     this.animes = res.anime;
                     this.all = res.anime;
                     this.filterAnime();
+                    this.loaded = true;
                     console.log(this.animes);
                 })
                 .catch((err) => {
